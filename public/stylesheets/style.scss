@@ -1,0 +1,93 @@
+.btn-hacedor{
+  border: 4px #00aaff solid;
+  border-radius: 5px;
+}
+
+#deja{
+  font-family: "Comic Sans MS";
+
+  .materia{
+    padding: 0;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    .frente, .reverso{
+      width: 100%;
+      min-height: 10em;
+      border: 1px solid gray;
+      backface-visibility: hidden;
+      transition-duration: 0.5s;
+    }
+    .frente{
+      .titulo{
+        position: relative;
+        top: 50%;
+        h1{
+          position: relative;
+          top: -50%;
+        }
+      }
+    }
+    .reverso{
+      transform: rotateY(180deg);
+      position: absolute;
+      top: 0;
+      border: 3px solid #00aaff;
+    }
+  }
+
+  .materia:hover{
+    .frente{
+      transform: rotateY(-180deg);
+    }
+    .reverso{
+      transform: rotateY(0deg)
+    }
+  }
+}
+
+footer{
+  background-color: black;
+}
+
+.social {
+  margin-top: 1.5em;
+  i {
+    width: 27px;
+    height: 27px;
+    background: url('../images/social-icons.png') no-repeat 0px 0px;
+    display: inline-block;
+    margin: 0 5px;
+  }
+  a i {
+    &.facebook {
+      background-position: -3px -2px;
+    }
+    &.twitter {
+      background-position: -43px -3px;
+    }
+    &.dribble {
+      background-position: -83px -3px;
+    }
+    &.google {
+      background-position: (-126px) -2px;
+    }
+    &.youtube {
+      background-position: -167px -3px;
+    }
+    &.facebook:hover {
+      background-position: -3px -36px;
+    }
+    &.twitter:hover {
+      background-position: -43px -36px;
+    }
+    &.dribble:hover {
+      background-position: -83px -36px;
+    }
+    &.google:hover {
+      background-position: (-126px) -36px;
+    }
+    &.youtube:hover {
+      background-position: -167px -36px;
+    }
+  }
+}

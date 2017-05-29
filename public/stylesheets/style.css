@@ -46,15 +46,30 @@
   transform: rotateY(0deg);
 }
 
+#quienes-somos {
+  font-size: 1.4em;
+}
+
 footer {
+  padding: 2em 0;
   background-color: black;
 }
 
-.social {
-  margin-top: 1.5em;
+footer a {
+  color: white;
+  text-decoration: none;
 }
 
-.social i {
+footer a:hover {
+  color: #ccffee;
+  text-decoration: none;
+}
+
+footer .social {
+  padding-top: 1.5em;
+}
+
+footer .social i {
   width: 27px;
   height: 27px;
   background: url("../images/social-icons.png") no-repeat 0px 0px;
@@ -62,42 +77,42 @@ footer {
   margin: 0 5px;
 }
 
-.social a i.facebook {
+footer .social a i.facebook {
   background-position: -3px -2px;
 }
 
-.social a i.twitter {
+footer .social a i.twitter {
   background-position: -43px -3px;
 }
 
-.social a i.dribble {
+footer .social a i.dribble {
   background-position: -83px -3px;
 }
 
-.social a i.google {
+footer .social a i.google {
   background-position: -126px -2px;
 }
 
-.social a i.youtube {
+footer .social a i.youtube {
   background-position: -167px -3px;
 }
 
-.social a i.facebook:hover {
+footer .social a i.facebook:hover {
   background-position: -3px -36px;
 }
 
-.social a i.twitter:hover {
+footer .social a i.twitter:hover {
   background-position: -43px -36px;
 }
 
-.social a i.dribble:hover {
+footer .social a i.dribble:hover {
   background-position: -83px -36px;
 }
 
-.social a i.google:hover {
+footer .social a i.google:hover {
   background-position: -126px -36px;
 }
 
-.social a i.youtube:hover {
+footer .social a i.youtube:hover {
   background-position: -167px -36px;
 }

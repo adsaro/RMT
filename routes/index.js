@@ -7,4 +7,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: '¡Bienvenido!', profesionales: profesionales });
 });
 
+router.get('/quienes_somos', function(req, res, next){
+  res.render('quienes_somos', {title: 'Conocenos un poco más'})
+});
+
 module.exports = router;

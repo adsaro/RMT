@@ -8,7 +8,15 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/quienes_somos', function(req, res, next){
-  res.render('quienes_somos', {title: 'Conocenos un poco más'})
+  res.render('quienes_somos', {title: 'Conocenos un poco más'});
+});
+
+router.get('/registro', function(req, res, next){
+  res.render('registro', {title: 'Forma parte de resuelvemitarea.com'});
+});
+
+router.get('/se_hacedor', function(req, res, next){
+  res.render('se_hacedor', {title: 'Forma parte de resuelvemitarea.com'});
 });
 
 module.exports = router;

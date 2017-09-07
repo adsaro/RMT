@@ -1,0 +1,13 @@
+extends layout
+
+block content
+  .container
+    h2 Ingresa a tu cuenta.
+    form(method="POST")
+      .form-group
+        label Nombre:
+        input.form-control(type="text", name="username", placeholder="Tu nombre de usuario")
+      .form-group
+        label Contraseña:
+        input.form-control(type="password", name="password")
+      input.btn.btn-primary(type="submit", value="Acceder")

@@ -10,9 +10,11 @@ var localStrategy = require('passport-local').Strategy;
 var MongoStore = require('connect-mongo')(session);
 
 var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 mongoose.connect('mongodb://localhost/rmt');
 
 var routes = require('./routes/index');
+var Usuario = require('./models/usuario');
 
 var app = express();
 
@@ -28,7 +30,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-                  secret: 'Sesión de Profes4u',
+                  secret: 'Sesión de rmt',
                   store: new MongoStore({ mongooseConnection: mongoose.connection, ttl: 1800 }),
                   resave: true,
                   saveUninitialized: true 
@@ -36,6 +38,7 @@ app.use(session({
 
 //configure passport
 passport.use(new localStrategy(function(username, password, cb) {
+  console.log("local strategy")
     Usuario.findByUsername(username, function(err, user) {
       if (err) { return cb(err); }
       if (!user) { return cb(null, false); }

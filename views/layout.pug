@@ -28,18 +28,23 @@ html
           ul.nav.navbar-nav
           form.navbar-form.navbar-left
             .form-group
-              input.form-control(type='text', placeholder='Search')
+              input.form-control(type='text', placeholder='Buscar tareas')
             button.btn.btn-default(type='submit') Buscar
           ul.nav.navbar-nav
             li
               a(href='/como-funciona') Cómo funciona
           ul.nav.navbar-nav.navbar-right
-            li
-              a(href='/acceder') Accede
-            li
-              a(href='/registrarse') Registrate
-            li
-              a.btn-hacedor(href='/como-funciona/hacedor') Conviertete en hacedor de tareas
+            if !usuario
+              li
+                a(href='/acceder') Accede
+              li
+                a(href='/registrarse') Registrate
+            else
+              li
+                span.navbar-text Hola #{usuario.nombre}
+            if !usuario || usuario.tipo != "hacedor"
+              li
+                a.btn-hacedor(href='/como-funciona/hacedor') Conviertete en hacedor de tareas
     block content
     footer
       .container

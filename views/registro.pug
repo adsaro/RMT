@@ -3,12 +3,12 @@ extends layout
 block content
   .container
     h2 Se parte de resuelvemitarea.com
-    h3 Para poder publicar tu tarea y obtener quien la resuelva o para poder trabajar resolviendo tareas
+    p Para poder publicar tu tarea y obtener quien la resuelva o para poder trabajar resolviendo tareas
       | debes primero registrate :)
-    h3 Recuerda que puedes permanecer totalmente anonimo y sólo necesitas un nombre de usuario y una contraseña
+    p Recuerda que puedes permanecer totalmente anonimo y sólo necesitas un nombre de usuario y una contraseña
     form#registro(method="POST")
       .form-group
-        label Nombre:
+        label Nombre(Nickname, no tu nombre real):
         input.form-control(type="text", name="nombre", placeholder="No tu nombre real")
       .form-group
         label Contraseña:

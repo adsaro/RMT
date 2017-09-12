@@ -31,9 +31,12 @@ router.get('/logout', function(req,res){
   res.redirect('/');
 });
 
-router.use('/registro', require('./registro'));
+router.use('/registrarse', require('./registro'));
 router.use('/accede', require('./login'));
 
+router.use('/como_funciona', function(req, res, next){
+  res.render('como_funciona', {title: 'Conoce cómo funciona resuelvemitarea.com'})
+});
 router.get('/se_hacedor', function(req, res, next){
   res.render('se_hacedor', {title: 'Forma parte de resuelvemitarea.com'});
 });

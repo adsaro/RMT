@@ -1,4 +1,15 @@
 extends layout
 
 block content
-  
+  .container
+    h1 Publica tu tarea.
+    h3 Desde aquí puedes publicar cualquier tarea que tengas para que los profesionales sean capaces de verla.
+      | Ten en cuenta que tu tarea requiere algún tiempo para ser observada por los profesionales y que puedan
+      | realizar propuestas sobre cuánto cobrarían y en cuánto tiempo la terminarían.
+
+  .container
+    form(method="post", enctype="multipart/form-data")
+      .form-group
+        label(for="archivo") Elige el archivo que contiene tu tarea.
+        input#archivo(type="file", name="archivo")
+      input(type="submit", value="Enviar")

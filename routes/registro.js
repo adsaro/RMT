@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var bcrypt = require('bcryptjs');
+var fs = require('fs');
 
 var Usuario = require('../models/usuario');
 
@@ -34,7 +35,8 @@ router.post('/', function(req, res, next){
               console.log(dato);
               res.redirect('/accede');
             }
-          })
+          });
+          fs.mkdirSync('/home/usuarios/' + req.body.nombre);
         })();
       }
     });

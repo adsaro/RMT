@@ -40,5 +40,8 @@ router.use('/como_funciona', function(req, res, next){
 router.get('/se_hacedor', function(req, res, next){
   res.render('se_hacedor', {title: 'Forma parte de resuelvemitarea.com'});
 });
+router.use('/publicar_tarea', function(req, res, next){
+  res.render('publicar_tarea', {title: "Publica tu tarea para que sea visible"})
+});
 
 module.exports = router;

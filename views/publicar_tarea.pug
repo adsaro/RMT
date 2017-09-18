@@ -10,6 +10,12 @@ block content
   .container
     form(method="post", enctype="multipart/form-data")
       .form-group
+        label(for="materia") Elige la materia de tu tarea:
+        select(name='materia')
+          option(value='', disabled='', selected='') Elige la materia
+          each materia in materias
+            option(value=materia.id)=materia.nombre
+      .form-group
         label(for="archivo") Elige el archivo que contiene tu tarea.
         input#archivo(type="file", name="archivo")
       input(type="submit", value="Enviar")

@@ -26,7 +26,7 @@ html
         // Collect the nav links, forms, and other content for toggling
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           ul.nav.navbar-nav
-          form.navbar-form.navbar-left
+          //form.navbar-form.navbar-left(method="GET", action="/buscar")
             .form-group
               input.form-control(type='text', placeholder='Buscar tareas')
             button.btn.btn-default(type='submit') Buscar
@@ -42,9 +42,11 @@ html
             else
               li
                 span.navbar-text Hola #{usuario.nombre}
+              li
+                a(href='/logout') Cerrar sesión
             if !usuario || usuario.tipo != "hacedor"
               li
-                a.btn-hacedor(href='/como-funciona/hacedor') Conviertete en hacedor de tareas
+                a.btn-hacedor(href='/como_funciona#hacedor') Conviertete en hacedor de tareas
     block content
     footer
       .container

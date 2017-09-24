@@ -5,10 +5,12 @@ var tareaSchema = new mongoose.Schema({
     hacedor: mongoose.Schema.Types.ObjectId,
     materia: mongoose.Schema.Types.ObjectId,
     archivo: String,
-    solucion: String,
+    solucion: mongoose.Schema.Types.ObjectId,
+    descripcion: String,
     propuestas: [],
     fecha_creacion: {type: Date, default: Date.now()},
     fecha_entrega: {type: Date, required: false},
+    fecha_limite: {type: Date, required: false},
     calificacion: Number,
     precio: Number
 });

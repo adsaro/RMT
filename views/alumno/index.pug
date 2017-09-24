@@ -2,4 +2,24 @@ extends ../layout
 
 block content
   .container
-    
+    a.btn.btn-success(href="/publicar_tarea") Agregar tarea
+    each tarea in tareas
+      hr
+      .tarea
+        .publicacion.row
+          h3.col-xs-6.col-md-8=tarea.descripcion
+          - var fecha_de_creacion = tarea.fecha_creacion.getDate() + '/' + (tarea.fecha_creacion.getMonth() + 1) + '/' + tarea.fecha_creacion.getFullYear();
+          h3.col-xs-3.col-md-2=fecha_de_creacion
+          if tarea.fecha_entrega
+            - var fecha_de_entrega = tarea.fecha_entrega.getDate() + '/' + (tarea.fecha_entrega.getMonth() + 1) + '/' + tarea.fecha_entrega.getFullYear();
+            h3.col-xs-3.col-md-2=fecha_de_entrega
+          else
+            h3.col-xs-3.col-md-2 -
+        each propuesta in tarea.propuestas
+          .propuesta.row
+            h3.col-xs-4.col-xs-offset-2=propuesta.hacedor
+            h3.col-xs-2 $#{propuesta.precio}
+            h3.col-xs-2 #{propuesta.tiempo_entrega} horas
+            if !tarea.fecha_entrega
+              - var direccion_propuesta = "/aceptar/" + propuesta.id
+              a.btn.btn-primary.col-xs-2(href=direccion_propuesta) Contratar

@@ -6,7 +6,8 @@ var usuarioSchema = mongoose.Schema({
   password: Object,
   email: String,
   creacion: {type: Date, default: Date.now},
-  tipo: { type: String, default: "alumno", required: false }
+  tipo: { type: String, default: "alumno", required: false },
+  materias: []
 });
 
 usuarioSchema.methods.comparar = function(pass){

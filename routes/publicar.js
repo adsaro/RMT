@@ -10,7 +10,7 @@ var Materia = require('../models/materia');
 /* GET home page. */
 router.get('/', function(req, res){
   (function encontrarMaterias(){
-    Materia.findAll(function(err, materias){
+    Materia.find(function(err, materias){
       if(err){
         encontrarMaterias();
       }else{
@@ -41,18 +41,19 @@ router.post('/', upload.single('archivo'), function(req, res, next){
       }else{
         var arch = req.file.path;
         var materia = req.body.materia;
-        var tarea = new Tarea({materia: materia, archivo: arch, usuario: user});
+        var descripcion = req.body.descripcion;
+        var tarea = new Tarea({materia: materia, archivo: arch, usuario: user, descripcion: descripcion});
         function guardar(elemento){
           elemento.save(function(err){
             if(err){
               console.log(err);
               guardar(elemento);
             }else{
-              res.render('tarea_enviada', {title: 'Tu tarea ha sido enviada'})
+              res.render('tarea_enviada', {title: 'Tu tarea ha sido enviada'});
             }
           });
         }
-        guardar(video);
+        guardar(tarea);
       }
     });
   })();

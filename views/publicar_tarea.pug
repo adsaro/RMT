@@ -16,6 +16,9 @@ block content
           each materia in materias
             option(value=materia.id)=materia.nombre
       .form-group
+        label(for="descripcion") Describe un poco tu tarea.
+        input#descripcion.form-control(type="text", name="descripcion")
+      .form-group
         label(for="archivo") Elige el archivo que contiene tu tarea.
         input#archivo(type="file", name="archivo")
       input(type="submit", value="Enviar")

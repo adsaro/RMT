@@ -3,18 +3,25 @@ extends ../layout
 block content
   .container
     a.btn.btn-success(href="/publicar_tarea") Agregar tarea
+    .row
+      h3.col-xs-6 Descripcion
+      h3.col-xs-2 Creacion
+      h3.col-xs-2 Límite
+      h3.col-xs-2 Entrega
     each tarea in tareas
       hr
       .tarea
         .publicacion.row
-          h3.col-xs-6.col-md-8=tarea.descripcion
+          h3.col-xs-6=tarea.descripcion
           - var fecha_de_creacion = tarea.fecha_creacion.getDate() + '/' + (tarea.fecha_creacion.getMonth() + 1) + '/' + tarea.fecha_creacion.getFullYear();
-          h3.col-xs-3.col-md-2=fecha_de_creacion
+          h3.col-xs-2=fecha_de_creacion
+          - var fecha_de_limite = tarea.fecha_limite.getDate() + '/' + (tarea.fecha_limite.getMonth() + 1) + '/' + tarea.fecha_limite.getFullYear();
+          h3.col-xs-2=fecha_de_limite
           if tarea.fecha_entrega
             - var fecha_de_entrega = tarea.fecha_entrega.getDate() + '/' + (tarea.fecha_entrega.getMonth() + 1) + '/' + tarea.fecha_entrega.getFullYear();
-            h3.col-xs-3.col-md-2=fecha_de_entrega
+            h3.col-xs-2=fecha_de_entrega
           else
-            h3.col-xs-3.col-md-2 -
+            h3.col-xs-2 -
         each propuesta in tarea.propuestas
           .propuesta.row
             h3.col-xs-4.col-xs-offset-2=propuesta.hacedor

@@ -1,6 +1,7 @@
 extends layout
 
 block content
+  link(rel="stylesheet", href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css")
   .container
     h1 Publica tu tarea.
     h3 Desde aquí puedes publicar cualquier tarea que tengas para que los profesionales sean capaces de verla.
@@ -21,4 +22,16 @@ block content
       .form-group
         label(for="archivo") Elige el archivo que contiene tu tarea.
         input#archivo(type="file", name="archivo")
+      .form-group
+        label(for="fecha_limite") elige una fecha límite para tu tarea (mm/dd/aaaa).
+        input#fecha_limite(type="text", name="fecha_limite")
       input(type="submit", value="Enviar")
+  script(src="https://code.jquery.com/ui/1.12.1/jquery-ui.js")
+  script.
+    $('#fecha_limite').datepicker({
+      changeYear: true, 
+      yearRange: "c-80:c",
+      monthNames:["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"],
+      dayNames: ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"],
+      dayNamesMin: [ "Dom", "Lun", "Mar", "Mie", "Jue", "Vie", "Sab" ]
+    })

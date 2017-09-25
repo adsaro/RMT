@@ -42,7 +42,8 @@ router.post('/', upload.single('archivo'), function(req, res, next){
         var arch = req.file.path;
         var materia = req.body.materia;
         var descripcion = req.body.descripcion;
-        var tarea = new Tarea({materia: materia, archivo: arch, usuario: user, descripcion: descripcion});
+        var fecha_limite = new Date(req.body.fecha_limite);
+        var tarea = new Tarea({materia: materia, archivo: arch, usuario: user, descripcion: descripcion, fecha_limite: fecha_limite});
         function guardar(elemento){
           elemento.save(function(err){
             if(err){

@@ -7,6 +7,6 @@ block content
         h3.col-xs-5=tarea.descripcion
         h3.col-xs-3=tarea.materia.nombre
         - var direccion_tarea = "/proponer/" + tarea._id
-        - var descargar_tarea = "/descargas/" + tarea.archivo
+        - var descargar_tarea = "/descargas/tarea/" + tarea._id
         a.col-xs-2.btn.btn-primary(href=descargar_tarea) Descargar
         a.col-xs-2.btn.btn-success(href=direccion_tarea) Proponer

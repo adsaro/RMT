@@ -9,15 +9,27 @@ var Materia = require('../models/materia');
 
 /* GET home page. */
 router.get('/', function(req, res){
-  (function encontrarMaterias(){
-    Materia.find(function(err, materias){
-      if(err){
-        encontrarMaterias();
-      }else{
-        res.render('publicar_tarea', {materias: materias, title: "Publica tu tarea para que sea visible"});
-      }
-    });
-  })();
+  if(req.user){
+    (function encontrarUsuario(){
+      Usuario.findById(req.user.id, function(err, usuario){
+        if(err){
+          encontrarUsuario();
+        }else if(!usuario){
+          res.redirect('/logout');
+        }else{
+          (function encontrarMaterias(){
+            Materia.find(function(err, materias){
+              if(err){
+                encontrarMaterias();
+              }else{
+                res.render('publicar_tarea', {materias: materias, title: "Publica tu tarea para que sea visible", usuario: usuario});
+              }
+            });
+          })();
+        }
+      })
+    })();
+  }
 });
 
 var storage = multer.diskStorage({

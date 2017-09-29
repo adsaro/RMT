@@ -1,11 +1,11 @@
 const mongoose = require('mongoose');
 
 var tareaSchema = new mongoose.Schema({
-    usuario: mongoose.Schema.Types.ObjectId,
-    hacedor: mongoose.Schema.Types.ObjectId,
-    materia: mongoose.Schema.Types.ObjectId,
+    usuario: {type: mongoose.Schema.Types.ObjectId, ref: "Usuario"},
+    hacedor: {type: mongoose.Schema.Types.ObjectId, ref: "Usuario"},
+    materia: {type: mongoose.Schema.Types.ObjectId, ref: "Materia"},
     archivo: String,
-    solucion: mongoose.Schema.Types.ObjectId,
+    solucion: String,
     descripcion: String,
     propuestas: [],
     fecha_creacion: {type: Date, default: Date.now()},

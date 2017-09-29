@@ -18,10 +18,19 @@ router.get('/tarea/:id', function(req, res, next){
         }else if(!user){
           res.render('redirect', {direccion: '/registrarse', mensaje: "Tu usuario no está registrado. Por favor registrate para poder acceder"});
         }else{
+          console.log(req.params.id);
           (function buscarTarea(){
+            console.log("buscando tarea");
             Tarea.findById(req.params.id, function(err, tarea){
-              res.sendFile(tarea.archivo);
-              res.end();
+              if(err){
+                console.log(err);
+                buscarTarea();
+              }else{
+                console.log(tarea)
+                res.sendFile(tarea.archivo, function(err){
+                  res.end();
+                });
+              }
             });
           })();
         }

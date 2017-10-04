@@ -1,0 +1,18 @@
+extends layout
+
+block content
+  .container
+    form(method="post")
+      .form-group
+        label(for="precio") Precio a cobrar por la tarea.
+        input#precio(type="number", name="precio")
+        label#precio-final -20% = $ para ti.
+      .form-group
+        label(for="horas") Cantidad de horas para terminar la tarea despues del pago.
+        input#horas(type="number", name="horas")
+      input(type="submit", value="Hacer la propuesta")
+  script.
+    $("#precio").change(function(){
+      var mensaje = "-20% = $" + (Math.round($("#precio").val()*80)/100) + " para ti.";
+      $("#precio-final").text(mensaje);
+    });

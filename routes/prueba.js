@@ -36,7 +36,7 @@ var options = {
 }
 /* GET home page. */
 router.get('/', function(req, res){
-  res.render('hacedor/index', options);
+  res.render('proponer', {title: "Proponer"});
 });
 
 module.exports = router;

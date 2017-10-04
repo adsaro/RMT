@@ -33,7 +33,7 @@ router.post('/', function(req, res, next){
               guardarUsuario();
             }else{
               console.log(dato);
-              res.redirect('/accede');
+              res.redirect('/acceder');
             }
           });
           fs.mkdirSync('/home/usuarios/' + req.body.nombre);

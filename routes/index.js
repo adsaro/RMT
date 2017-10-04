@@ -101,4 +101,6 @@ router.use('/prueba', require('./prueba'));
 
 router.use('/descargas', require('./descargas'));
 
+router.use('/proponer', require('./proponer'));
+
 module.exports = router;

@@ -1,1 +1,53 @@
-//hay que hacer un formulario para pagar cuando el alumno eligió una propuesta
+extends layout
+
+block content
+  style.
+    .centavos{
+      font-size: 0.7em;
+      vertical-align: top
+    }
+  .container.text-center
+    h3 Estás por realizar el pago por el siguiente serivicio
+    .row
+      h4.col-xs-3 Calificaciones del hacedor
+      h4.col-xs-3 Precio propuesto
+      h4.col-xs-3 Tiempo de entrega
+      h4.col-xs-3 Total a pagar
+    .row
+      - var cals = calificaciones.rating + "(" + calificaciones.calificaciones + " opiniones)"
+      h4.col-xs-3=cals
+      h4.col-xs-3 $#{precio_propuesto}.
+        span.centavos 00 
+        | MXN
+      h4.col-xs-3#tiempo_de_entrega=tiempo_de_entrega
+      h4.col-xs-3 $#{total_a_pagar}.
+        span.centavos 00 
+        | MXN
+  hr
+  .container
+    form(methode="post", action="https://sandbox.gateway.payulatam.com/ppp-web-gateway/")
+      input(name="merchantId",         type="hidden",  value="508029"  )
+      input(name="accountId",          type="hidden",  value="512321")
+      input(name="description",        type="hidden",  value="Test PAYU" )
+      input(name="referenceCode",      type="hidden",  value="TestPayU")
+      input(name="amount",             type="hidden",  value="20000"  )
+      input(name="tax",                type="hidden",  value="3193" )
+      input(name="taxReturnBase",      type="hidden",  value="16806")
+      input(name="currency",           type="hidden",  value="COP")
+      input(name="signature",          type="hidden",  value="7ee7cf808ce6a39b17481c54f2c57acc" )
+      input(name="test",               type="hidden",  value="1")
+      input(name="responseUrl",        type="hidden",  value="http://www.test.com/response")
+      input(name="confirmationUrl",    type="hidden",  value="http://www.test.com/confirmation")
+      label(for="email") Tu email:
+      input#email(name="buyerEmail",         type="email",   required)
+      input(name="Submit",             type="submit",  value="Enviar")
+  script.
+    var fecha = new Date();
+    var tiempo = $("#tiempo_de_entrega").text()
+    fecha.setHours(fecha.getHours()+~~$("#tiempo_de_entrega").text());
+    var dias = ["Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"];
+    var meses = ["Ene", "Feb", "Mar", "Abr", "May", "Jun", "Jul", "Ago", "Sep", "Oct", "Nov", "Dic"];
+    $("#tiempo_de_entrega").text(fecha.getHours() + ":" + ("0" + fecha.getMinutes()).slice(-2) + "hrs " 
+    + dias[fecha.getDay()] + " "
+    + fecha.getDate() + "/" + meses[fecha.getMonth()] + "/" + fecha.getFullYear()
+    + "(" + tiempo + "horas)")

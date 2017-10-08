@@ -103,4 +103,6 @@ router.use('/descargas', require('./descargas'));
 
 router.use('/proponer', require('./proponer'));
 
+router.use('/aceptar', require('./formulario_de_pago'))
+
 module.exports = router;

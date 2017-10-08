@@ -28,5 +28,5 @@ block content
             h3.col-xs-2 $#{propuesta.precio}
             h3.col-xs-2 #{propuesta.tiempo_entrega} horas
             if !tarea.fecha_entrega
-              - var direccion_propuesta = "/aceptar/" + propuesta.id
+              - var direccion_propuesta = "/aceptar/" + propuesta._id
               a.btn.btn-primary.col-xs-2(href=direccion_propuesta) Contratar

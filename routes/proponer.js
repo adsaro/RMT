@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Usuario = require('../models/usuario');
 var Tarea = require('../models/tarea');
+var Propuesta = require('../models/propuesta');
 
 router.get('/', function(req, res){
   res.redirect('/');
@@ -55,19 +56,28 @@ router.post('/:id', function(req, res, next){
               }else if(!tarea){
                 res.render('redirect', {direccion: '/', mensaje: 'La tarea solicitada no se encuentra en el sistema'})
               }else{
-                tarea.propuestas.push({
+                var propuesta = new Propuesta({
                   precio: req.body.precio, 
-                  horas: req.body.horas, 
+                  tiempo_entrega: req.body.horas, 
                   hacedor: user._id,
                   rating: user.rating,
                   calificaciones: user.calificaciones
                 });
-                (function guardarTarea(){
-                  tarea.save(function(err){
+                (function guardarPropuesta(){
+                  propuesta.save(function(err, prop){
                     if(err){
-                      guardarTarea();
+                      guardarPropuesta();
                     }else{
-                      res.render('redirect', {direccion: '/', mensaje: 'Tu propuesta fue guardada correctamente.'})
+                      tarea.propuestas.push(propuesta);
+                      (function guardarTarea(){
+                        tarea.save(function(err){
+                          if(err){
+                            guardarTarea();
+                          }else{
+                            res.render('redirect', {direccion: '/', mensaje: 'Tu propuesta fue guardada correctamente.'})
+                          }
+                        })
+                      })();
                     }
                   })
                 })();

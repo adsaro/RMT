@@ -1,1 +1,8 @@
-//recibe la informacion de payU sobre el estado del pago, si es aprobada o rechazada dar el aviso al usuario
+extends layout
+
+block content
+  .container
+    if transaccion.aprobada
+      h3 ¡Muy bien! Tu pago fue aprobado correctamente, ahora sólo falta esperar para que el hacedor te envíe la tarea terminada
+    else
+      h3 ¡Lastima! Tu pago fue rechazado por alguna razón. Por favor intenta nuevamente más tarde

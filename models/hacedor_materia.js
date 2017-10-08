@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 var hacedorMateriaSchema = new mongoose.Schema({
-    hacedor: mongoose.Schema.Types.ObjectId,
-    materia: mongoose.Schema.Types.ObjectId,
+    hacedor: {type: mongoose.Schema.Types.ObjectId, ref: "Usuario"},
+    materia: {type: mongoose.Schema.Types.ObjectId, ref: "Matera"},
     calificacion: Number
 });
 

@@ -29,7 +29,7 @@ router.get('/', function(req, res){
       });
     })();
   }else{
-    res.render('redirect', {direccion: '/accede', mensaje: 'Aún no has accedido como usuario. Por favor accede con tu usuario y contraseña'});
+    res.render('redirect', {direccion: '/acceder', mensaje: 'Aún no has accedido como usuario. Por favor accede con tu usuario y contraseña'});
   }
 });
 

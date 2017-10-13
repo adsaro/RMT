@@ -37,7 +37,7 @@ router.get('/tarea/:id', function(req, res, next){
       });
     })();
   }else{
-    res.render('redirect', {direccion: '/accede', mensaje: 'Aún no has accedido como usuario. Por favor accede con tu usuario y contraseña'});
+    res.render('redirect', {direccion: '/acceder', mensaje: 'Aún no has accedido como usuario. Por favor accede con tu usuario y contraseña'});
   }
 });
 
@@ -72,7 +72,7 @@ router.get('/solucion/:id', function(req, res, next){
       });
     })();
   }else{
-    res.render('redirect', {direccion: '/accede', mensaje: 'Aún no has accedido como usuario. Por favor accede con tu usuario y contraseña'});
+    res.render('redirect', {direccion: '/acceder', mensaje: 'Aún no has accedido como usuario. Por favor accede con tu usuario y contraseña'});
   }
 });
 

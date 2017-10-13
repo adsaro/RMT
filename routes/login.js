@@ -10,7 +10,7 @@ router.get('/', function(req, res){
   res.render('login');
 });
 
-router.post('/', passport.authenticate('local', {failureRedirect: '/accede'}), function(req, res, next){
+router.post('/', passport.authenticate('local', {failureRedirect: '/acceder'}), function(req, res, next){
   res.redirect('/');
 });
 

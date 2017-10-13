@@ -49,7 +49,7 @@ router.post('/', upload.single('archivo'), function(req, res, next){
       if(err){
         encontrarUsuario();
       }else if(!user){
-        res.render('redirect', {direccion: '/accede', mensaje: 'Aún no has accedido como usuario. Por favor accede con tu usuario y contraseña'});
+        res.render('redirect', {direccion: '/acceder', mensaje: 'Aún no has accedido como usuario. Por favor accede con tu usuario y contraseña'});
       }else{
         var arch = req.file.path;
         var materia = req.body.materia;
